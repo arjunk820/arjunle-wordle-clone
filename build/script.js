@@ -57,7 +57,7 @@ function deleteLetter () {
 // shadeKeyboard - shades the keyboard yellow/green/grey
 function shadeKeyboard(letter, color) {
     for (const elem of document.getElementsByClassName("keyboard-button")) {
-        if (elem.textContent.toUpperCase() === letter) {
+        if (elem.textContent === letter) {
             let oldColor = elem.style.backgroundColor
             if (oldColor === 'green') {
                 return
@@ -78,11 +78,11 @@ function shadeKeyboard(letter, color) {
 function checkGuess () {
     let row = document.getElementsByClassName("letter-row")[MAX_GUESSES - remGuesses]
     let guessString = ''
-    let rightGuess = Array.from(correctAnswer.toUpperCase());
+    let rightGuess = Array.from(correctAnswer);
 
     for (const val of currGuess) {
         guessString += val
-        guessString = guessString.toUpperCase()
+        guessString = guessString
     }
 
     if (guessString.length != LENGTH) {
