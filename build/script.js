@@ -128,7 +128,7 @@ function checkGuess () {
     }
 
     if (guessString === correctAnswer) {
-        toastr.success(`You got it in "${remGuesses}!"`)
+        toastr.success(`You got it in "${MAX_GUESSES - remGuesses + 1}!"`)
         remGuesses = 0
         return
     } else {
