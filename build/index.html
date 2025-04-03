@@ -55,6 +55,12 @@
         <button class="reset-button">Reset</button>
     </div>
 
+    <script>
+        document.querySelector('.reset-button').addEventListener('click', function() {
+          location.reload();
+        });
+      </script>
+
     <!-- Only load jQuery and toastr.js once -->
     <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
