@@ -81,3 +81,26 @@ display: flex;
     outline: 2px solid #007BFF;
     outline-offset: 2px;
 }
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+.reset-button {
+    background-color: #ff4d4d; /* red background */
+    color: #fff;             /* white text */
+    border: none;            /* no border */
+    padding: 10px 20px;      /* space inside the button */
+    font-size: 16px;         /* readable text size */
+    border-radius: 10px;      /* rounded corners */
+    cursor: pointer;         /* pointer cursor on hover */
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* horizontal center */
+  }
+  .reset-button:hover {
+    background-color: #e60000; /* darker red on hover */
+  }
