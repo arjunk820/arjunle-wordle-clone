@@ -23,14 +23,16 @@ h1 {
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    }
+    font-family: 'Share Tech Mono', monospace;
+    font-weight: bold;
+}
     
-    .filled-box {
-    border: 2px solid black;
-    }
-    
-    .letter-row {
-    display: flex;
+.filled-box {
+border: 2px solid black;
+}
+
+.letter-row {
+display: flex;
 }
 
 #keyboard-cont {
@@ -78,9 +80,4 @@ h1 {
 .keyboard-button:focus {
     outline: 2px solid #007BFF;
     outline-offset: 2px;
-}
-
-.letter-box {
-    font-family: 'Share Tech Mono', monospace;
-    font-weight: bold; /* if you want bold letters */
 }

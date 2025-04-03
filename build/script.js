@@ -1,6 +1,7 @@
-import { WORDS } from "./words.js";
+import { WORDS } from "./newWords.js";
 
-const MAX_GUESSES = 6;
+const MAX_GUESSES = 5;
+const LENGTH = 4;
 let remGuesses = MAX_GUESSES;
 let currGuess = [];
 let indexLetter = 0;
@@ -10,12 +11,12 @@ console.log(correctAnswer)
 function initBoard() {
     let board = document.getElementById("game-board");
 
-    // Creates the 6 x 5 game board.
+    // Creates the 5 x 4 game board.
     for (let i = 0; i < MAX_GUESSES; i++) {
         let row = document.createElement("div")
         row.className = "letter-row"
 
-        for (let j = 0; j < 5; j++) {
+        for (let j = 0; j < LENGTH; j++) {
             let box = document.createElement("div")
             box.className = "letter-box"
             row.appendChild(box)
@@ -30,12 +31,12 @@ initBoard()
 // insertLetter - expects a letter to be pressed to be inserted into the
 // row corresponding to the current guess
 function insertLetter (pressedKey) {
-    if (indexLetter === 5) {
+    if (indexLetter === LENGTH) {
         return
     }
     pressedKey = pressedKey.toLowerCase()
 
-    let row = document.getElementsByClassName("letter-row")[6 - remGuesses]
+    let row = document.getElementsByClassName("letter-row")[MAX_GUESSES - remGuesses]
     let box = row.children[indexLetter]
     box.textContent = pressedKey
     box.classList.add("filled-box")
@@ -45,7 +46,7 @@ function insertLetter (pressedKey) {
 
 // deleteLetter - deletes the last letter pressed from the current guess (row)
 function deleteLetter () {
-    let row = document.getElementsByClassName("letter-row")[6 - remGuesses]
+    let row = document.getElementsByClassName("letter-row")[MAX_GUESSES - remGuesses]
     let box = row.children[indexLetter - 1]
     box.textContent = ""
     box.classList.remove("filled-box")
@@ -56,7 +57,7 @@ function deleteLetter () {
 // shadeKeyboard - shades the keyboard yellow/green/grey
 function shadeKeyboard(letter, color) {
     for (const elem of document.getElementsByClassName("keyboard-button")) {
-        if (elem.textContent === letter) {
+        if (elem.textContent.toUpperCase() === letter) {
             let oldColor = elem.style.backgroundColor
             if (oldColor === 'green') {
                 return
@@ -75,15 +76,16 @@ function shadeKeyboard(letter, color) {
 // checkGuess - goes through the user's guess and checks letter by letter
 // according to the rules of Wordle
 function checkGuess () {
-    let row = document.getElementsByClassName("letter-row")[6 - remGuesses]
+    let row = document.getElementsByClassName("letter-row")[MAX_GUESSES - remGuesses]
     let guessString = ''
-    let rightGuess = Array.from(correctAnswer)
+    let rightGuess = Array.from(correctAnswer.toUpperCase());
 
     for (const val of currGuess) {
         guessString += val
+        guessString = guessString.toUpperCase()
     }
 
-    if (guessString.length != 5) {
+    if (guessString.length != LENGTH) {
         toastr.error("Not enough letters!")
         return
     }
@@ -93,7 +95,7 @@ function checkGuess () {
         return
     }
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < LENGTH; i++) {
         let letterColor = ''
         let box = row.children[i]
         let letter = currGuess[i]
