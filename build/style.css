@@ -122,3 +122,43 @@ display: flex;
     border: 6px solid #646fff;
     box-shadow: 0px 0px;
   }
+
+  /* Mobile view adjustments */
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    #game-board {
+      margin-top: 10px;
+      padding: 0 10px;
+    }
+  
+    .letter-box {
+      font-size: 1.8rem;
+      height: 2.5rem;
+      width: 2.5rem;
+      margin: 2px;
+    }
+  
+    #keyboard-cont {
+      margin: 1.5rem 0;
+      gap: 0.5rem;
+    }
+  
+    #keyboard-cont div {
+      gap: 0.3rem;
+    }
+  
+    .keyboard-button {
+      font-size: 0.9rem;
+      padding: 0.5rem 0.8rem;
+    }
+  
+    .reset-button {
+      font-size: medium;
+      padding: 0.6em 1.8em;
+      border-width: 4px;
+      box-shadow: 0px 6px #1f35ff;
+    }
+  }
