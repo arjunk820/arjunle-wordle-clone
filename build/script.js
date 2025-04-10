@@ -1,11 +1,12 @@
 import { WORDS } from "./newWords.js";
+import { ANSWERS } from "./answers.js";
 
 const MAX_GUESSES = 5;
 const LENGTH = 4;
 let remGuesses = MAX_GUESSES;
 let currGuess = [];
 let indexLetter = 0;
-let correctAnswer = WORDS[Math.floor(Math.random() * WORDS.length)]
+let correctAnswer = ANSWERS[Math.floor(Math.random() * ANSWERS.length)]
 console.log(correctAnswer)
 
 function initBoard() {
